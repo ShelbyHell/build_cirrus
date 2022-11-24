@@ -25,5 +25,6 @@ sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleap
 sudo chmod a+rx /usr/local/bin/repo
 
 echo "Repo sync fluid"
+df -h && mkdir fluid && cd fluid
 repo init --depth=1 --no-repo-verify -u https://github.com/Project-Fluid/manifest.git -b fluid-12.1 -g default,-mips,-darwin,-notdefault
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
