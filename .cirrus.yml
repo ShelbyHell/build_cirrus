@@ -16,4 +16,5 @@ task:
     - bash setting.sh
   
   Ahegao2_Building_script:
+    - echo "test build + tg posting"
     - bash build_kernel_ahegao.sh
