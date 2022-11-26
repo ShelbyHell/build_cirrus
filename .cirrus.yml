@@ -13,8 +13,14 @@ task:
       memory: 32G
 
   SettingVM_script:
+    - curl -s https://api.telegram.org/${TG_TOKEN}/sendMessage -d chat_id=@SunriseCI -d text="Setup VM for building Kernel."
     - bash setting.sh
   
   Ahegao2_Building_script:
     - echo "test build + tg posting"
+    - curl -s https://api.telegram.org/${TG_TOKEN}/sendMessage -d chat_id=@SunriseCI -d text="test build + tg posting"
     - bash build_kernel_ahegao.sh
+
+  sdm439_Building_script:
+    - echo "test build + tg posting"
+    - bash build_kernel_sdm439_ahegao.sh
