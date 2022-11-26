@@ -10,6 +10,7 @@ PATH="$PATH"
 clang -v
 aarch64-linux-gnu-ld.bfd -v && echo "test"
 
+echo "Summa"
 mkdir /tmp/output
 ZIPNAME="/tmp/output/AhegaoKernel-juice_$(date +%Y%m%d-%H%M).zip"
 
