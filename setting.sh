@@ -4,7 +4,7 @@ git config --global user.name 'vsc-sxx.'
 git config --global user.email "shelbyhell@proton.me"
 git config --global credential.helper "cache --timeout=7200"
 
-curl -s https://api.telegram.org/$tltoken/sendMessage -d chat_id=$TELEGRAM_CHAT_ID -d text="Setup VM for building Kernel."
+curl -s https://api.telegram.org/$tltoken/sendMessage -d chat_id=$tlchat -d text="Setup VM for building Kernel."
 sudo apt-get update -q -y && sudo apt-get install -q -y --no-install-recommends \
     apt-utils apt-transport-https python3-apt \
     git ffmpeg maven nodejs ca-certificates-java pigz tar rsync rclone aria2 adb autoconf automake axel bc bison build-essential ccache lsb-core lsb-security ca-certificates systemd udev \
