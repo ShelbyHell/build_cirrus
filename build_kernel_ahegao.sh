@@ -8,7 +8,7 @@ export CROSS_COMPILE=aarch64-linux-gnu-
 export CROSS_COMPILE_ARM32=arm-none-eabi-
 PATH="$PATH"
 clang -v
-aarch64-linux-gnu-ld.bfd -v
+aarch64-linux-gnu-ld.bfd -v && echo "test"
 
 mkdir /tmp/output
 ZIPNAME="/tmp/output/AhegaoKernel-juice_$(date +%Y%m%d-%H%M).zip"
