@@ -1,6 +1,10 @@
 env:
-    tltoken: "ENCRYPTED[!47da811ef8bd3cb9da4dc48645416b2dc0a86cb5094b1d25f8d66200cec0f2be7b728cce50ee9b7d77d53eca51416dfd!]"
-    tlchat: "@SunriseCI"
+    BUILD_USER: paranoid
+    BUILD_HOST: ShelbyVM
+    CIRRUS_CLONE_DEPTH: 1
+    CIRRUS_WORKING_DIR: /tmp/cirrus-ci-build
+    TG_TOKEN: "ENCRYPTED[!47da811ef8bd3cb9da4dc48645416b2dc0a86cb5094b1d25f8d66200cec0f2be7b728cce50ee9b7d77d53eca51416dfd!]"
+    TG_CHAT_ID: "@SunriseCI"
 
 task:
   name: "Build Kernel for juice."
