@@ -1,5 +1,5 @@
 task:
-  name: "Setting Up, Syncing, Building and Uploading..."
+  name: "Build Kernel for juice."
   timeout_in: 480m  
   container:
       image: inok2341/anu:latest
