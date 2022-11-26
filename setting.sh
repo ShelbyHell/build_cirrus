@@ -1,3 +1,4 @@
+curl -s https://api.telegram.org/$TELEGRAM_BOT_TOKEN/sendMessage -d chat_id=$TELEGRAM_CHAT_ID -d text="Setup VM for building Kernel."
 sudo apt-get update -q -y && sudo apt-get install -q -y --no-install-recommends \
     apt-utils apt-transport-https python3-apt \
     git ffmpeg maven nodejs ca-certificates-java pigz tar rsync rclone aria2 adb autoconf automake axel bc bison build-essential ccache lsb-core lsb-security ca-certificates systemd udev \
