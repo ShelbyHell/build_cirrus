@@ -3,7 +3,7 @@ env:
     BUILD_HOST: ShelbyVM
     CIRRUS_CLONE_DEPTH: 1
     CIRRUS_WORKING_DIR: /tmp/cirrus-ci-build
-    TG_TOKEN: ""
+    TG_TOKEN: "ENCRYPTED[!dcfef406b8bbd1135ea03bc939405c1847ce720ae04e8ffc3a9e2de047a450d029cf44f755df472a6859b545498a2b38!]"
     TG_CHAT_ID: "@SunriseCI"
 
 task:
