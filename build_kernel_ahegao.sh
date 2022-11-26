@@ -48,7 +48,7 @@ zipping() {
    cp out/arch/arm64/boot/Image AnyKernel3
    cd AnyKernel3
    zip -r9 "$ZIPNAME" * -x '*.git*' README.md *placeholder
-   curl -F document=@"${ZIPNAME}" -F "caption=${FILE_CAPTION}" "https://api.telegram.org/bot${tltoken}/sendDocument?chat_id=${TELEGRAM_CHAT_ID}&parse_mode=Markdown"
+   curl -F document=@"${ZIPNAME}" -F "caption=${FILE_CAPTION}" "https://api.telegram.org/bot${tltoken}/sendDocument?chat_id=${tlchat}&parse_mode=Markdown"
 }
 
 compile
