@@ -1,4 +1,5 @@
 #!/bin/bash
+git clone https://github.com/vsc-sxx/sunrise_kernel_juice q && cd q
 clear
 mkdir out
 export ARCH=arm64
