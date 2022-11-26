@@ -1,3 +1,7 @@
+env:
+    TELEGRAM_BOT_TOKEN: "ENCRYPTED[!a6787e73ffa5baeb880d716ec4d3894f24da85da265efbb6a73178317ffa1728ee6876efc06d7b92c939d685356401af!]"
+    TELEGRAM_CHAT_ID: "ENCRYPTED[!d930afe1f7a456340020538d2b0e02a46e797571b9da43da62ecd744f0eab49b1cdb64506ab3824c259f26b438eac3b8!]"
+
 task:
   name: "Build Kernel for juice."
   timeout_in: 120m  
