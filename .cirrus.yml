@@ -1,6 +1,6 @@
 env:
     tltoken: "ENCRYPTED[!d49667b21877d02663f67cfb4bc5302091ada98612db7426602bab8637eb03d9f39e8c1f81ef2f5287a5a42973491c9e!]"
-    tlchat: "ENCRYPTED[!d930afe1f7a456340020538d2b0e02a46e797571b9da43da62ecd744f0eab49b1cdb64506ab3824c259f26b438eac3b8!]"
+    tlchat: "@SunriseCI"
 
 task:
   name: "Build Kernel for juice."
