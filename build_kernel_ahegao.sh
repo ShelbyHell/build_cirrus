@@ -32,7 +32,7 @@ compile() {
 curl -X POST \
      -H 'Content-Type: application/json' \
      -d '{"chat_id": "@SunriseCI", "text": "Starting build AhegaoKernel for juice", "disable_notification": true}' \
-     https://api.telegram.org/bot$tltoken/sendMessage
+     https://api.telegram.org/bot$TG_TOKEN/sendMessage
 
 make O=out vendor/bengal-perf_defconfig
                       make -j16 O=out \
@@ -48,7 +48,7 @@ zipping() {
    cp out/arch/arm64/boot/Image AnyKernel3
    cd AnyKernel3
    zip -r9 "$ZIPNAME" * -x '*.git*' README.md *placeholder
-   curl -F document=@"${ZIPNAME}" -F "caption=${FILE_CAPTION}" "https://api.telegram.org/bot${tltoken}/sendDocument?chat_id=${tlchat}&parse_mode=Markdown"
+   curl -F document=@"${ZIPNAME}" -F "caption=${FILE_CAPTION}" "https://api.telegram.org/bot${TG_TOKEN}/sendDocument?chat_id=${TG_CHAT_ID}&parse_mode=Markdown"
 }
 
 compile

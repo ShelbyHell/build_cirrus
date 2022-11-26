@@ -1,19 +1,17 @@
 env:
-    BUILD_USER: paranoid
-    BUILD_HOST: ShelbyVM
     CIRRUS_CLONE_DEPTH: 1
     CIRRUS_WORKING_DIR: /tmp/cirrus-ci-build
-    TG_TOKEN: "ENCRYPTED[!dcfef406b8bbd1135ea03bc939405c1847ce720ae04e8ffc3a9e2de047a450d029cf44f755df472a6859b545498a2b38!]"
+    TG_TOKEN: "ENCRYPTED[!362ad9c0bb2c607868a8282f612d9b1e75d06580a5a5872385347f53de088e93fc7337a53f9dcb146f9936d4de1afdfe!]"
     TG_CHAT_ID: "@SunriseCI"
 
 task:
-  name: "Build Kernel for juice."
-  timeout_in: 120m  
+  name: "Kernel Build.."
+  timeout_in: 1h
   container:
-      image: inok2341/anu:latest
+      image: anggit86/docker:cirrus
       cpu: 8
       memory: 32G
-  
+
   SettingVM_script:
     - bash setting.sh
   
