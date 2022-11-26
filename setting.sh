@@ -1,3 +1,9 @@
+echo "Configure github."
+sudo apt update && sudo apt install git -y
+git config --global user.name 'vsc-sxx.'
+git config --global user.email "shelbyhell@proton.me"
+git config --global credential.helper "cache --timeout=7200"
+
 curl -s https://api.telegram.org/$TELEGRAM_BOT_TOKEN/sendMessage -d chat_id=$TELEGRAM_CHAT_ID -d text="Setup VM for building Kernel."
 sudo apt-get update -q -y && sudo apt-get install -q -y --no-install-recommends \
     apt-utils apt-transport-https python3-apt \
