@@ -13,5 +13,5 @@ task:
   SettingVM_script:
     - bash setting.sh
   
-  Ahegao_Building_script:
+  Ahegao2_Building_script:
     - bash build_kernel_ahegao.sh
