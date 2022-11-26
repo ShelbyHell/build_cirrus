@@ -1,10 +1,13 @@
 task:
   name: "Build Kernel for juice."
-  timeout_in: 480m  
+  timeout_in: 120m  
   container:
       image: inok2341/anu:latest
       cpu: 8
       memory: 32G
-        
-  Build-Env-Setup_background_script:
-    - bash test.sh
+  
+  SettingVM_script:
+    - bash setting.sh
+  
+  Ahegao_Building_script:
+    - bash build_kernel_ahegao.sh
