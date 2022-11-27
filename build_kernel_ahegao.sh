@@ -8,9 +8,8 @@ export CROSS_COMPILE=aarch64-linux-gnu-
 export CROSS_COMPILE_ARM32=arm-none-eabi-
 PATH="$PATH"
 clang -v
-aarch64-linux-gnu-ld.bfd -v && echo "test"
+aarch64-linux-gnu-ld.bfd -v
 
-echo "Summa"
 mkdir /tmp/output
 ZIPNAME="/tmp/output/AhegaoKernel-juice_$(date +%Y%m%d-%H%M).zip"
 
@@ -21,27 +20,26 @@ COMMIT_BY="$(git log --pretty=format:'by %an' -1)"
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 KERNEL_VERSION="$(cat out/.config | grep Linux/arm64 | cut -d " " -f3)"
 export FILE_CAPTION="
+==========================
 🏚️ Linux version: $KERNEL_VERSION
 🌿 Branch: $BRANCH
 🎁 Top commit: $LATEST_COMMIT
-👩‍💻 Commit author: $COMMIT_BY"
+👩‍💻 Commit author: $COMMIT_BY
+==========================
+
+<b>🔋 For all change, look in:</b> <a href=\"$KERNEL_SOURCE/commits/$KERNEL_BRANCH\">Here</a>"
 }
 
 env
 
 compile() {
-curl -X POST \
-     -H 'Content-Type: application/json' \
-     -d '{"chat_id": "@SunriseCI", "text": "Starting build AhegaoKernel for juice", "disable_notification": true}' \
-     https://api.telegram.org/bot$TG_TOKEN/sendMessage
-
 make O=out vendor/bengal-perf_defconfig
-                      make -j16 O=out \
-                      ARCH=arm64 \
-                      CC=clang \
-                      CLANG_TRIPLE=aarch64-linux-gnu- \
-                      CROSS_COMPILE=aarch64-linux-gnu- \
-                      CROSS_COMPILE_ARM32=arm-none-eabi-
+make -j16 O=out \
+      ARCH=arm64 \
+      CC=clang \
+      CLANG_TRIPLE=aarch64-linux-gnu- \
+      CROSS_COMPILE=aarch64-linux-gnu- \
+      CROSS_COMPILE_ARM32=arm-none-eabi-
 }
 
 zipping() {
