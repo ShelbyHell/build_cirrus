@@ -24,14 +24,6 @@ sudo apt-get update -q -y && sudo apt-get install -q -y --no-install-recommends 
 
 sudo apt install binutils-arm-none-eabi gcc-arm-none-eabi libstdc++-arm-none-eabi-newlib binutils-aarch64-linux-gnu gcc-aarch64-linux-gnu -y
 
-tg_post_msg() {
-  curl -s -X POST "$BOT_MSG_URL" -d chat_id="$TG_CHAT_ID" \
-  -d "disable_web_page_preview=true" \
-  -d "parse_mode=html" \
-  -d text="$1"
-}
-
-export BOT_MSG_URL="https://api.telegram.org/bot$TG_TOKEN/sendMessage"
-LD_VER="ld.ldd: $(aarch64-linux-gnu-ld.bfd -v)"
-
-tg_post_msg "$LD_VER"
+echo "Installing repo"
+sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
+sudo chmod a+rx /usr/local/bin/repo
