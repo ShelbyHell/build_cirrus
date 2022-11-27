@@ -1,16 +1,19 @@
 env:
     CIRRUS_CLONE_DEPTH: 1
     CIRRUS_WORKING_DIR: /tmp/cirrus-ci-build
-    TG_TOKEN: "ENCRYPTED[!362ad9c0bb2c607868a8282f612d9b1e75d06580a5a5872385347f53de088e93fc7337a53f9dcb146f9936d4de1afdfe!]"
+    TG_TOKEN: "ENCRYPTED[cb8f3f665d0fb335e3bf8d10ebe7c80c0a564f12924952dd20c3a2aa58193e29d0b3145fea698b5e641261399fa28f3d]"
     TG_CHAT_ID: "@SunriseCI"
 
 task:
   name: "Kernel Build.."
-  timeout_in: 1h
+  timeout_in: 2h
   container:
       image: anggit86/docker:cirrus
       cpu: 8
       memory: 32G
+
+  Trigger_script:
+    - curl -s https://api.telegram.org/${TG_TOKEN}/sendMessage -d chat_id=@SunriseCI -d text="Triggered start build on CirrusCI."
 
   SettingVM_script:
     - curl -s https://api.telegram.org/${TG_TOKEN}/sendMessage -d chat_id=@SunriseCI -d text="Setup VM for building Kernel."
