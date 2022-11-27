@@ -20,3 +20,10 @@ source build/envsetup.sh
 lunch twrp_juice-eng
 mka recoveryimage ALLOW_MISSING_DEPENDENCIES=true # Only if you use minimal twrp tree.
 curl -F document=@"${ZIPNAME}" -F "caption=${FILE_CAPTION}" "https://api.telegram.org/bot${TG_TOKEN}/sendDocument?chat_id=${TG_CHAT_ID}&parse_mode=Markdown"
+
+curl https://api.telegram.org/bot$TG_TOKEN/sendDocument \
+  -F chat_id=$TG_CHAT_ID \
+  -F disable_notification=true \
+  -F parse_mode=HTML \
+  -F caption=$FILE_CAPTION \
+  -F document=@${ZIPNAME}
