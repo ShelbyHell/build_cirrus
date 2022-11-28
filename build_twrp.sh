@@ -1,13 +1,5 @@
 #!/bin/bash
 ZIPNAME="out/target/product/juice/recovery.img"
-export FILE_CAPTION="TWRP 3.7.0 | Branch: twrp-12.1 | STATUS: TESTING | Device: juice
-Changelog:
- * Inital build
- * Render 60fps from vayu device tree twrp
- * Enable reboot to EDL option
- * Import USB init recovery from stock
- * Use fscrypt policy v1
- * Add REPACKTOOLS flag"
 
 echo "TWRP: repo sync"
 curl -s https://api.telegram.org/bot$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="TWRP: repo sync"
@@ -19,11 +11,6 @@ git clone https://github.com/vsc-sxx/device_xiaomi_juice-twrp device/xiaomi/juic
 source build/envsetup.sh
 lunch twrp_juice-eng
 mka recoveryimage ALLOW_MISSING_DEPENDENCIES=true # Only if you use minimal twrp tree.
-curl -F document=@"${ZIPNAME}" -F "caption=${FILE_CAPTION}" "https://api.telegram.org/bot${TG_TOKEN}/sendDocument?chat_id=${TG_CHAT_ID}&parse_mode=Markdown"
-
-curl https://api.telegram.org/bot$TG_TOKEN/sendDocument \
-  -F chat_id=$TG_CHAT_ID \
-  -F disable_notification=true \
-  -F parse_mode=HTML \
-  -F caption=$FILE_CAPTION \
-  -F document=@${ZIPNAME}
+rclone copy $ZIPNAME shelby:twrp -P
+curl -s https://api.telegram.org/bot$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="TWRP 3.7.0 | Branch: twrp-12.1 | STATUS: TESTING | Device: juice
+Owner please check your gdrive."
