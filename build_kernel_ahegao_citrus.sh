@@ -1,8 +1,9 @@
 #!/bin/bash
 echo "AHEGAO BUILDER"
-echo "KERNEL AHEGAO v1.0 with LIME SUPPORT CAMERA"
+echo "KERNEL AHEGAO v1.0 with CITRUS SUPPORT CAMERA"
 
-git clone https://github.com/vsc-sxx/sunrise_kernel_juice q && cd q
+cd ..
+git clone https://github.com/vsc-sxx/sunrise_kernel_juice -b R-citrus citrus && cd citrus
 clear
 mkdir out
 export ARCH=arm64
@@ -14,7 +15,7 @@ clang -v
 aarch64-linux-gnu-ld.bfd -v
 
 mkdir /tmp/output
-ZIPNAME="/tmp/output/AhegaoKernel-juice_$(date +%Y%m%d-%H%M).zip"
+ZIPNAME="/tmp/output/AhegaoKernel-camera-citrus_juice_$(date +%Y%m%d-%H%M).zip"
 
 env() {
 TRIGGER_SHA="$(git rev-parse HEAD)"
@@ -23,6 +24,7 @@ COMMIT_BY="$(git log --pretty=format:'by %an' -1)"
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 KERNEL_VERSION="$(cat out/.config | grep Linux/arm64 | cut -d " " -f3)"
 export FILE_CAPTION="
+citrus-camera...
 ==========================
 🏚️ Linux version: $KERNEL_VERSION
 🌿 Branch: $BRANCH
@@ -44,7 +46,7 @@ make -j32 O=out \
 }
 
 zipping() {
-   git clone https://github.com/ShelbyHell/AnyKernel3
+   git clone -q https://github.com/ShelbyHell/AnyKernel3
    cp out/arch/arm64/boot/Image AnyKernel3
    cd AnyKernel3
    zip -r9 "$ZIPNAME" * -x '*.git*' README.md *placeholder
