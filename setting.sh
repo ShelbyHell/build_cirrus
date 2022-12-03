@@ -1,6 +1,6 @@
 echo "Configure github."
 sudo apt update && sudo apt install git -y
-git config --global user.name 'vsc-sxx.'
+git config --global user.name 'Alexey Shelby (vsc-sxx.)'
 git config --global user.email "shelbyhell@proton.me"
 git config --global credential.helper "cache --timeout=7200"
 
