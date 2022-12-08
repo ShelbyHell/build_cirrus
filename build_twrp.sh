@@ -1,7 +1,4 @@
 #!/bin/bash
-ZIPNAME="out/target/product/juice/recovery.img"
-ZIP=$(ls SHRP*.zip)
-
 echo "TWRP: repo sync"
 curl -s https://api.telegram.org/bot$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="SHRP: repo sync"
 mkdir twrp && cd twrp
@@ -12,6 +9,7 @@ git clone https://github.com/vsc-sxx/device_xiaomi_juice-twrp device/xiaomi/juic
 source build/envsetup.sh
 lunch twrp_juice-eng
 mka recoveryimage ALLOW_MISSING_DEPENDENCIES=true # Only if you use minimal twrp tree.
+ZIPNAME="out/target/product/juice/recovery.img"
 rclone copy $ZIPNAME shelby:shrp -P
 ZIP=$(ls SHRP*.zip)
 rclone copy $ZIP shelby:shrp-zip -P
