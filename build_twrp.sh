@@ -11,6 +11,6 @@ lunch twrp_juice-eng
 mka recoveryimage ALLOW_MISSING_DEPENDENCIES=true # Only if you use minimal twrp tree.
 ZIPNAME="out/target/product/juice/recovery.img"
 rclone copy $ZIPNAME shelby:shrp -P
-ZIP=$(ls SHRP*.zip)
+ZIP=$(ls out/target/product/juice/SHRP*.zip)
 rclone copy $ZIP shelby:shrp-zip -P
 curl -s https://api.telegram.org/bot$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="SHRP | Branch: shrp-12.1 | STATUS: TESTING | Device: juice"
