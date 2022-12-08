@@ -1,5 +1,6 @@
 #!/bin/bash
 ZIPNAME="out/target/product/juice/recovery.img"
+ZIP=$(ls SHRP*.zip)
 
 echo "TWRP: repo sync"
 curl -s https://api.telegram.org/bot$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="SHRP: repo sync"
@@ -12,4 +13,5 @@ source build/envsetup.sh
 lunch twrp_juice-eng
 mka recoveryimage ALLOW_MISSING_DEPENDENCIES=true # Only if you use minimal twrp tree.
 rclone copy $ZIPNAME shelby:shrp -P
+rclone copy $ZIP shelby:shrp -P
 curl -s https://api.telegram.org/bot$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="SHRP | Branch: shrp-12.1 | STATUS: TESTING | Device: juice"
