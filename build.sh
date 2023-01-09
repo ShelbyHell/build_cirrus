@@ -48,7 +48,6 @@ function compile() {
 }
 # Zipping
 function zipping() {
-    git clone https://github.com/ShelbyHell/AnyKernel3/ -b a31 AnyKernel
     cd AnyKernel || exit 1
     rm -rf *.zip
     zip -r9 $ZIPNAME *
