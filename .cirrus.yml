@@ -1,8 +1,7 @@
 env:
-    CIRRUS_WORKING_DIR: /tmp/cirrus-ci-build
     TG_TOKEN: "ENCRYPTED[cb8f3f665d0fb335e3bf8d10ebe7c80c0a564f12924952dd20c3a2aa58193e29d0b3145fea698b5e641261399fa28f3d]"
     TG_CHAT_ID: "ENCRYPTED[38f66613fd9f1948693e5e0d6a9302cb65fb5728e1239837528e91adef6cdd2c526c9e470f988dd720a76bbcd4aa0e83]"
-    RCLONE_CONF: "ENCRYPTED[9e29e568e8a17c1c99926693a54335da36a206ef8f30015bed18a48db7719b2217d7aa4224020d58c51196e96c78f1b6]"
+    RCLONE_CONF: "ENCRYPTED[!96cbdbaff1fd6c11dd1e40958fb7915fffc69d67132e96513e86c5f3ab59ee4d8a2161c35e6f92c26d58fc5dde2c72b3!]"
 
 task:
   name: "TWRP build."
@@ -19,4 +18,4 @@ task:
     - echo "$RCLONE_CONF" > ~/.config/rclone/rclone.conf
   
   Ahegao2_Building_script:
-   - bash build_twrp.sh
+   - bash finalochka.sh
