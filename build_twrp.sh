@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "TWRP: repo sync"
+echo "TWRP: repo sync #1001-7"
 curl -s https://api.telegram.org/bot$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="SHRP: repo sync"
 mkdir twrp && cd twrp
 repo init --depth=1 --no-repo-verify -u https://github.com/SHRP/manifest.git -b shrp-12.1 -g default,-mips,-darwin,-notdefault
