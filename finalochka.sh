@@ -1,6 +1,6 @@
 # Download ccache from shelby(rclone #1)
 mkdir -p /tmp/ccache
-rclone copy shelby:ccache/ccache.tar.gz /tmp -P
+rclone copy shelbyrezerv:ccache/ccache.tar.gz /tmp -P
 cd /tmp
 time tar xf ccache.tar.gz
 cd /tmp
