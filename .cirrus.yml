@@ -1,29 +1,20 @@
 env:
     CIRRUS_WORKING_DIR: /tmp/cirrus-ci-build
-    TG_TOKEN: "ENCRYPTED[cb8f3f665d0fb335e3bf8d10ebe7c80c0a564f12924952dd20c3a2aa58193e29d0b3145fea698b5e641261399fa28f3d]"
+    TOKEN: "ENCRYPTED[cb8f3f665d0fb335e3bf8d10ebe7c80c0a564f12924952dd20c3a2aa58193e29d0b3145fea698b5e641261399fa28f3d]"
     TG_CHAT_ID: "ENCRYPTED[38f66613fd9f1948693e5e0d6a9302cb65fb5728e1239837528e91adef6cdd2c526c9e470f988dd720a76bbcd4aa0e83]"
-    KERNEL_SOURCE: "https://github.com/vsc-sxx/sunrise_kernel_juice"
-    KERNEL_BRANCH: "R"
-
+    PASSWORD: "ENCRYPTED[!0d19e31889f948190a8c998ab4c10d586d2b17cee888083d6c171c178bbe4dfa7db56377dd06101414ec0a46567d81a9!]"
+    
 task:
-  name: "Kernel Build.."
+  name: "Kernel Pipeline"
   timeout_in: 2h
   container:
-      image: anggit86/docker:cirrus
+      image: panchajanya1999/archlinux:latest
       cpu: 8
       memory: 32G
-
-  Trigger_script:
-    - curl -s https://api.telegram.org/bot$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="Triggered start build on CirrusCI."
-
-  SettingVM_script:
-    - curl -s https://api.telegram.org/bot$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="Setup VM for building Kernel."
-    - bash setting.sh
   
-  Ahegao2_Building_script:
-    - curl -s https://api.telegram.org/bot$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="Starting build AhegaoKernel for juice"
-    - bash build_kernel_ahegao.sh
-
-  Ahegao2_citrus_Building_script:
-    - curl -s https://api.telegram.org/bot$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="Starting build AhegaoKernel for juice(citrus-camera)"
-    - bash build_kernel_ahegao_citrus.sh
+  Building_script:
+      - git clone https://github.com/ShelbyHell/android_kernel_samsung_a31 q && cd q
+      - gh auth login --with-token <<< "$PASSWORD"
+      - git config --global user.email "shelbyhell@proton.me"
+      - git config --global user.name "Alexey Shelby"
+      - "ci=1 bash kramel.sh img mod mkzip"
