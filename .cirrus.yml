@@ -5,7 +5,7 @@ env:
     RCLONE_CONF: "ENCRYPTED[9e29e568e8a17c1c99926693a54335da36a206ef8f30015bed18a48db7719b2217d7aa4224020d58c51196e96c78f1b6]"
 
 task:
-  name: "TWRP build."
+  name: "TWRP1 build."
   timeout_in: 2h
   container:
       image: anggit86/docker:cirrus
